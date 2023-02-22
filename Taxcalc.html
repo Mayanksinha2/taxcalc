@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <script>
+        var f;
+        var ded,tax,TInc,annic;
+        function findIT(f){
+            anninc=parseFloat(f.ai.value);
+            ded=anninc/3;
+            if(ded > 12000){
+                ded=12000;
+                TInc=anninc-ded;
+            }
+                if(TInc<=18000){
+                tax=0;
+                }
+                if((TInc>18000) && (TInc<=25000)){
+                    tax=0.25*(TInc-18000);
+                }
+                if((TInc>25000) && (TInc<=50000)){
+                    tax=1750+0.3*(TInc-25000);
+                }
+                if((TInc>50000) && (TInc<=100000)){
+                    tax=9250+0.4*(TInc-50000);
+                }
+                if((TInc>100000)){
+                    tax=29250 + 0.5*(TInc-100000);
+                }
+            f.tax.value=tax;
+        }
+    </script>
+</head>
+<body bgcolor="yellow">
+    <form>
+      <center>
+        <br><br><h1><b>Income Tax</b></h1><br><br><hr><br><br>
+        <pre>
+            Enter your Annual Income :  <input type="text" name="ai"><br>
+                                        <input type="button" value="Find Tax" onclick="findIT(this.form)"><br>
+            Your Tax is :               <input type="text" name="tax">
+            <br><br><hr><br><br>                            
+        </pre>
+      </center>
+    </form>
+</body>
+</html>
